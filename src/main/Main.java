@@ -10,7 +10,7 @@ public class Main
 		Scanner scan = new Scanner(System.in);
 		Functions function = new Functions();
 		
-		System.out.println("[A]Create customer\n[B]Create order\n[C]Show all customers\n[D]Show all orders\n[E]Find customer\n[F]Find order\n[G]Find Orders by Customer");
+		System.out.println("[A]Create customer\n[B]Create order\n[C]Show all customers\n[D]Show all orders\n[E]Find customer\n[F]Find order\n[G]Find Orders by Customer\n[H]Remove order\n[I]Remove customer");
 		
 		while(scan.hasNext())
 		{
@@ -69,6 +69,18 @@ public class Main
 				String find = scan.next();
 				function.findCustomerOrders(find);
 				
+			}
+			if (action.equalsIgnoreCase("H"))
+			{
+				System.out.println("Enter order ID to remove order: ");
+				String remove = scan.next();
+				function.removeOrder(remove);
+			}
+			if (action.equalsIgnoreCase("I"))
+			{
+				System.out.println("Enter customer ID to remove customer: ");
+				String remove = scan.next();
+				function.removeCustomer(remove);
 			}
 			
 		}

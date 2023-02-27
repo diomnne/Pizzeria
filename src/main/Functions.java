@@ -1,6 +1,8 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
 
 public class Functions 
 {
@@ -99,6 +101,32 @@ public class Functions
 			if(order.getCustomer().getcustId().equals(custId))
 			{
 				System.out.println(order.toString());
+			}
+		}
+	}
+	
+	public void removeOrder(String orderId)
+	{
+		Iterator itr = orders.iterator();
+		while (itr.hasNext())
+		{
+			Order order = (Order)itr.next();
+			if (order.getorderId().equals(orderId))
+			{
+				itr.remove();
+			}
+		}
+	}
+
+	public void removeCustomer(String custId)
+	{
+		Iterator itr = customers.iterator();
+		while (itr.hasNext())
+		{
+			Customer customer = (Customer)itr.next();
+			if (customer.getcustId().equals(custId))
+			{
+				itr.remove();
 			}
 		}
 	}
