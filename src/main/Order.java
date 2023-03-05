@@ -2,9 +2,9 @@ package main;
 
 public class Order 
 {
-	private String orderId;
 	private Pizza pizza;
 	private Customer customer;
+	private String orderId;
 	
 	Order()
 	{

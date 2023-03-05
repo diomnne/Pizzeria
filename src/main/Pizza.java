@@ -2,20 +2,20 @@ package main;
 
 public class Pizza 
 {
-	private String pizzaId;
 	private String size;
 	private String toppings;
+	private String pizzaId;
 
 	
 	Pizza()
 	{
 		
 	}
-	Pizza(String pizzaId, String size, String toppings)
+	Pizza(String size, String toppings, String pizzaId)
 	{
-		this.pizzaId = pizzaId;
 		this.size = size;
 		this.toppings = toppings;
+		this.pizzaId = pizzaId;
 	}
 	public String getSize() 
 	{

@@ -36,7 +36,7 @@ public class Customer
 	{
 		return custId;
 	}
-	public void setId(String custId) 
+	public void setcustId(String custId) 
 	{
 		this.custId = custId;
 	}

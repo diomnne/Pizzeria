@@ -16,17 +16,15 @@ public class Main
 		{
 			String action = scan.nextLine();
 			
-			if(action.equalsIgnoreCase("A"))
+			if(action.equalsIgnoreCase("A")) //create customer
 			{
 				System.out.println("Enter name: ");
 				String name = scan.nextLine();
 				System.out.println("Enter address: ");
 				String address = scan.nextLine();
-				System.out.println("Enter id: ");
-				String id = scan.nextLine();
-				function.createCustomer(name, address, id);
+				function.createCustomer(name, address);
 			}
-			if(action.equalsIgnoreCase("B")) 
+			if(action.equalsIgnoreCase("B")) //create order
 			{
 				System.out.println("Enter customer ID: ");
 				String custid = scan.nextLine();
@@ -34,12 +32,8 @@ public class Main
 				String size = scan.nextLine();
 				System.out.println("Enter toppings: ");
 				String toppings = scan.nextLine();
-				System.out.println("Enter pizza ID: ");
-				String pizzaid = scan.nextLine();
-				System.out.println("Enter order ID: ");
-				String orderid = scan.nextLine();
 				
-				function.createOrder(custid, size, toppings, pizzaid, orderid);
+				function.createOrder(custid, size, toppings);
 			}
 			if(action.equalsIgnoreCase("C"))
 			{

@@ -1,33 +1,56 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Iterator;
 
 public class Functions 
 {
+	Customer customer;
+	int custIdCtr=100;
+	int pizzaIdCtr=500;
+	int orderIdCtr=1000;
 	ArrayList<Order> orders = new ArrayList<Order>();
 	ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
 	ArrayList<Customer> customers = new ArrayList<Customer>();
 	
-	public void createCustomer(String name, String address, String custId)
+	public void createCustomer(String name, String address)
 	{
-		customers.add(new Customer(name, address, custId));
+		customers.add(new Customer(name, address, autoCustId()));
+		System.out.println(customers.get(customers.size()-1));
 	}
 	
-	public void makePizza(String pizzaId, String size, String toppings)
+	public String autoCustId()
 	{
-		pizzas.add(new Pizza(pizzaId, size, toppings));
+		custIdCtr++;
+		return custIdCtr + "";
+	}
+	
+	public String autoPizzaId()
+	{
+		pizzaIdCtr++;
+		return pizzaIdCtr + "";
+	}
+	
+	public String autoOrderId()
+	{
+		orderIdCtr++;
+		return orderIdCtr + "";
+	}
+	
+	public void makePizza(String size, String toppings, String pizzaId)
+	{
+		pizzas.add(new Pizza(size, toppings, pizzaId));
 		
 	}
 	
-	public void createOrder(String custId, String size, String toppings, String pizzaId, String orderId)
+	
+	public void createOrder(String custId, String size, String toppings)
 	{
-		makePizza(pizzaId, size, toppings);
+		makePizza(size, toppings, autoPizzaId());
 		Customer chosen = getCustomer(custId);
-		Pizza pick = getPizza(pizzaId);
+		Pizza pick = getPizza(pizzas.get(pizzas.size()-1).getPizzaId());
 		
-		orders.add(new Order(chosen, pick, orderId));
+		orders.add(new Order(chosen, pick, autoOrderId()));
 	}
 	
 	public Customer getCustomer(String custId)
@@ -130,6 +153,5 @@ public class Functions
 			}
 		}
 	}
-	
 	
 }
