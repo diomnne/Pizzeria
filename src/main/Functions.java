@@ -5,13 +5,12 @@ import java.util.Iterator;
 
 public class Functions 
 {
-	Customer customer;
-	int custIdCtr=100;
-	int pizzaIdCtr=500;
-	int orderIdCtr=1000;
 	ArrayList<Order> orders = new ArrayList<Order>();
 	ArrayList<Pizza> pizzas = new ArrayList<Pizza>();
 	ArrayList<Customer> customers = new ArrayList<Customer>();
+	int custIdCtr=100;
+	int pizzaIdCtr=500;
+	int orderIdCtr=1000;
 	
 	public void createCustomer(String name, String address)
 	{
@@ -25,22 +24,16 @@ public class Functions
 		return custIdCtr + "";
 	}
 	
-	public String autoPizzaId()
-	{
-		pizzaIdCtr++;
-		return pizzaIdCtr + "";
-	}
-	
-	public String autoOrderId()
-	{
-		orderIdCtr++;
-		return orderIdCtr + "";
-	}
-	
 	public void makePizza(String size, String toppings, String pizzaId)
 	{
 		pizzas.add(new Pizza(size, toppings, pizzaId));
 		
+	}
+	
+	public String autoPizzaId()
+	{
+		pizzaIdCtr++;
+		return pizzaIdCtr + "";
 	}
 	
 	
@@ -51,6 +44,13 @@ public class Functions
 		Pizza pick = getPizza(pizzas.get(pizzas.size()-1).getPizzaId());
 		
 		orders.add(new Order(chosen, pick, autoOrderId()));
+		System.out.println(orders.get(orders.size()-1));
+	}
+	
+	public String autoOrderId()
+	{
+		orderIdCtr++;
+		return orderIdCtr + "";
 	}
 	
 	public Customer getCustomer(String custId)
@@ -66,6 +66,14 @@ public class Functions
 		return null;
 	}
 	
+	public void showAllCustomer() 
+	{
+		for(Customer customer: customers)
+		{
+			System.out.println(customer.toString());
+		}
+	}
+	
 	public Pizza getPizza(String pizzaId)
 	{
 		for (Pizza pizza: pizzas)
@@ -76,14 +84,6 @@ public class Functions
 			}
 		}
 		return null;
-	}
-	
-	public void showAllCustomer() 
-	{
-		for(Customer customer: customers)
-		{
-			System.out.println(customer.toString());
-		}
 	}
 	
 	public void showAllOrder()
